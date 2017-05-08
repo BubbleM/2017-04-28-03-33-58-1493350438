@@ -33,6 +33,9 @@ function getBowlingScore(bowlingCode){
 	var firstHit = 0;
 	var secondHit = 0;
 	for(var i=0;i<bowlingArr.length;i++){
+		if(bowlingArr[i][1] == -1){
+				bowlingArr[i][1] = 10 - bowlingArr[i][0];
+		}
 		// print("=====第" + (i+1) +"回合=====");
 		firstHit = bowlingArr[i][0];
 		// print("第一次击中：" + firstHit);
@@ -78,6 +81,7 @@ function getBowlingScore(bowlingCode){
 				scores[i] += bowlingArr[i][0] + bowlingArr[i][1];
 			}
 		}
+
 		//最后一次成绩
 		if(bowlingArr[9][0] == 10){
 			scores[9] += 10;
@@ -95,12 +99,12 @@ function getBowlingScore(bowlingCode){
 
 	function getTotalScore(){ //总成绩
 		for(var i=0;i<scores.length;i++){
+			// print(i + '=' + scores[i]);
 			// print(typeof(scores[i]));
 			totalScore += scores[i];
 		}
 		return totalScore;
 	}
-
 	return getTotalScore();
 }
 
@@ -109,7 +113,7 @@ function judgeNum(num){ //判断各种情况
 		case "X":
 			return 10;
 		case '/':
-			return 10;
+			return -1;
 		case '-':
 			return 0;
 		default:
@@ -117,4 +121,4 @@ function judgeNum(num){ //判断各种情况
 	}
 }
 
-// getBowlingScore("X|7/|9-|X|-8|8/|-6|X|X|X||81");
+// print(getBowlingScore("X|7/|9-|X|-8|8/|-6|X|X|X||81"));
