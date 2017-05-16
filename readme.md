@@ -1,4 +1,4 @@
-当前版本实现了JS版本 源码src下的getBowlingScore.js  
+本版本使用JS编码实现  并使用Jasmine测试  实现源码位于src下的getBowlingScore.js  
 ## 写一个程序给保龄球比赛计分的程序
 ```
 输入： 描述保龄球比赛成绩的字符串 (描述见下面)
